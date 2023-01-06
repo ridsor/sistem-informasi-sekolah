@@ -16,15 +16,21 @@ return new class extends Migration
         Schema::create('siswa', function (Blueprint $table) {
             $table->id();
             $table->foreignId('angkatan_id');
+            $table->foreignId('kelas_id');
+            $table->foreignId('semester_id');
             $table->foreignId('jurusan_id');
-            $table->string('nama');
             $table->string('slug')->unique();
-            $table->integer('nis')->unique();
-            $table->integer('nisn')->unique();
-            $table->enum('jenis_kelamin', ['laki - laki', 'perempuan']);
+            $table->integer('nis')->unique(); 
+            $table->integer('nisn')->unique();   
+            $table->string('nm_siswa');
             $table->string('alamat');
-            $table->string('tempat_lahir');
-            $table->date('tanggal_lahir');
+            $table->string('ttl');
+            $table->string('nohp');
+            $table->string('ayah')->nullable();
+            $table->string('ibu')->nullable();
+            $table->string('wali')->nullable();
+            $table->string('foto');
+            $table->enum('jenis_kelamin', ['laki - laki', 'perempuan']);
             $table->timestamps();
         });
     }
@@ -36,6 +42,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('siswas');
+        Schema::dropIfExists('siswa');
     }
 };
