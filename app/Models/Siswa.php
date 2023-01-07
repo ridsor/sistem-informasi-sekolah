@@ -8,13 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Siswa extends Model
 {
     use HasFactory;
+    protected $table = 'siswa';
     protected $fillable = [
+        "jurusan_id",
         "nm_siswa",
         "slug", 
         "nis", 
         "nisn", 
         "jenis_kelamin", 
-        "agama", "alamat", 
+        "agama", 
+        "alamat", 
         "tempat_lahir", 
         "tanggal_lahir", 
         "nohp", 
@@ -26,4 +29,12 @@ class Siswa extends Model
     ];
     
     protected $with = ['jurusan'];
+
+    public function jurusan() {
+        return $this->belongsTo(Jurusan::class);
+    }
+
+    public function getRouteKeyName() {
+        return 'slug';
+    }
 }

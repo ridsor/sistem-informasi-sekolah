@@ -8,8 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Jurusan extends Model
 {
     use HasFactory;
+    protected $table = 'jurusan';
     protected $fillable = [
         'nm_jurusan',
         'slug',
     ];
+
+    public function getRouteKeyName() {
+        return 'slug';
+    }
 }
