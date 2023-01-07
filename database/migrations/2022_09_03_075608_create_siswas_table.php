@@ -15,22 +15,22 @@ return new class extends Migration
     {
         Schema::create('siswa', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('angkatan_id');
-            $table->foreignId('kelas_id');
-            $table->foreignId('semester_id');
             $table->foreignId('jurusan_id');
             $table->string('slug')->unique();
             $table->integer('nis')->unique(); 
             $table->integer('nisn')->unique();   
             $table->string('nm_siswa');
             $table->string('alamat');
-            $table->string('ttl');
+            $table->enum('agama', ['Islam', 'Kristen', 'Budha']);
+            $table->enum('jenis_kelamin', ['laki - laki', 'perempuan']);
+            $table->date('tanggal_lahir');
+            $table->string('tempat_lahir');
             $table->string('nohp');
             $table->string('ayah')->nullable();
             $table->string('ibu')->nullable();
             $table->string('wali')->nullable();
+            $table->string('tahun_ajaran');
             $table->string('foto');
-            $table->enum('jenis_kelamin', ['laki - laki', 'perempuan']);
             $table->timestamps();
         });
     }
