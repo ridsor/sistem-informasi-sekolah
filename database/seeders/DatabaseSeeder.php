@@ -6,6 +6,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Siswa;
 use App\Models\Jurusan;
+use App\Models\Nilai;
+use App\Models\NilaiMapel;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,6 +26,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Siswa::factory(12)->create();
+        Nilai::factory(12)->create();
+        NilaiMapel::factory(12*16)->create();
         
         Jurusan::create([
             'nm_jurusan' => 'Manajemen Perkantoran',
