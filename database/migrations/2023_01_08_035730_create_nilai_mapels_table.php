@@ -13,10 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kelas', function (Blueprint $table) {
+        Schema::create('nilai_mapel', function (Blueprint $table) {
             $table->id();
-            $table->string('nm_kelas');
-            $table->string('slug')->unique();
+            $table->foreignId('nilai_id');
+            $table->string('nm_mapel');
+            $table->integer('kkm');
+            $table->integer('n_mapel');
+            $table->integer('n_tugas');
+            $table->integer('n_uts');
+            $table->integer('n_uas');
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kelas');
+        Schema::dropIfExists('nilai_mapel');
     }
 };

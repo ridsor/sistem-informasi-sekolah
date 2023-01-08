@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('semester', function (Blueprint $table) {
+        Schema::create('nilai', function (Blueprint $table) {
             $table->id();
-            $table->string('nm_semester');
-            $table->string('slug')->unique();
+            $table->foreignId('siswa_id');
+            $table->string('kelas', 4);
+            $table->enum('semester', ['ganjil', 'genap']);
+            $table->char('sikap', 1);
+            $table->char('kompetensi', 1);
+            $table->char('keterampilan', 1);
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('semester');
+        Schema::dropIfExists('nilai');
     }
 };
