@@ -1,5 +1,20 @@
-@media (max-width: 768px) {
-  .img-responsive {
-    width: 70%;
-  }
+#banner {
+    position: relative;
+}
+
+#banner::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -100;
+    width: 100%;
+    height: 134.4%;
+    background: url("/img/hero.png");
+    background-size: cover;
+    top: -120px;
+    left: 0;
+}
+
+.filter-shadow {
+    filter: drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.2));
 }

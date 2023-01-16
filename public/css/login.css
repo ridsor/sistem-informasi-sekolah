@@ -1,0 +1,26 @@
+.container-form .form {
+    max-width: 350px !important;
+    width: 100%;
+}
+
+.container-image {
+    height: 100vh;
+    min-height: 550px;
+}
+
+.container-image .w-100 {
+    height: 100vh;
+    min-height: 550px;
+}
+
+.fs-14 {
+    font-size: 14px !important;
+}
+
+.bi {
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    font-size: 20px;
+    color: rgb(206, 212, 218);
+}
