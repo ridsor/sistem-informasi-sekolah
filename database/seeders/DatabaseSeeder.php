@@ -8,6 +8,7 @@ use App\Models\Siswa;
 use App\Models\Jurusan;
 use App\Models\Nilai;
 use App\Models\NilaiMapel;
+use App\Models\Kelas;
 
 class DatabaseSeeder extends Seeder
 {
@@ -44,6 +45,16 @@ class DatabaseSeeder extends Seeder
         Jurusan::create([
             'nm_jurusan' => 'Rekayasa Perangkat Lunak',
             'slug' => 'rekayasa-perangkat-lunak',
+        ]);
+
+        Kelas::create([
+            'nm_kelas' => 'XD',
+        ]);
+        Kelas::create([
+            'nm_kelas' => 'XID',
+        ]);
+        Kelas::create([
+            'nm_kelas' => 'XID',
         ]);
     }
 }

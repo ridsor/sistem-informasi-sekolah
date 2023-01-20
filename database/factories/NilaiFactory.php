@@ -18,7 +18,7 @@ class NilaiFactory extends Factory
     {
         return [
             'siswa_id' => mt_rand(1,12),
-            'kelas' => $this->faker->randomElement(['XD', 'XID', 'XIID']),
+            'kelas_id' => mt_rand(1,3),
             'semester' => $this->faker->randomElement(['ganjil', 'genap']),
             'sikap' => $this->faker->randomElement(['A', 'B', 'C', 'D']),
             'kompetensi' => $this->faker->randomElement(['A', 'B', 'C', 'D']),
