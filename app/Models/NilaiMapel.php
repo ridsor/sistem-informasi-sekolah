@@ -9,6 +9,7 @@ class NilaiMapel extends Model
 {
     use HasFactory;
     protected $table = 'nilai_mapel';
+    public $timestamps = false;
     protected $fillable = [
         'nilai_id',
         'nm_mapel',

@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('nilai_mapel', function (Blueprint $table) {
+        Schema::create('failed_jobs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('nilai_id');
-            $table->string('nm_mapel');
-            $table->integer('kkm');
-            $table->integer('n_mapel');
-            $table->integer('n_tugas');
-            $table->integer('n_uts');
-            $table->integer('n_uas');
+            $table->string('uuid')->unique();
+            $table->text('connection');
+            $table->text('queue');
+            $table->longText('payload');
+            $table->longText('exception');
+            $table->timestamp('failed_at')->useCurrent();
         });
     }
 
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nilai_mapel');
+        Schema::dropIfExists('failed_jobs');
     }
 };
