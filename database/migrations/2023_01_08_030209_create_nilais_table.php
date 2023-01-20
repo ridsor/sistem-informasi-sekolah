@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('nilai', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kelas_id');
             $table->foreignId('siswa_id');
-            $table->string('kelas', 4);
             $table->enum('semester', ['ganjil', 'genap']);
             $table->char('sikap', 1);
             $table->char('kompetensi', 1);
