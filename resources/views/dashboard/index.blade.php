@@ -19,7 +19,7 @@
       <a href="/dashboard/siswa" class="text-decoration-none">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal text-muted"><span class="jumlah-siswa">2</span> jumlah siswa</h4>
+            <h4 class="my-0 fw-normal text-muted"><span class="jumlah-siswa">{{ $jumlahSiswa }}</span> jumlah siswa</h4>
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title"><i class="bi bi-people-fill"></i></h1>
@@ -31,7 +31,7 @@
       <a href="/dashboard/kelas" class="text-decoration-none">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal text-muted"><span class="jumlah-kelas">10</span> jumlah kelas</h4>
+            <h4 class="my-0 fw-normal text-muted"><span class="jumlah-kelas">{{ $jumlahKelas }}</span> jumlah kelas</h4>
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title"><i class="bi bi-house-door-fill"></i></h1>
@@ -43,7 +43,7 @@
       <a href="/dashboard/jurusan" class="text-decoration-none">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal text-muted"><span class="jumlah-jurusan">4</span> jumlah jurusan</h4>
+            <h4 class="my-0 fw-normal text-muted"><span class="jumlah-jurusan">{{ $jumlahJurusan }}</span> jumlah jurusan</h4>
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title"><i class="bi bi-file-earmark-fill"></i></h1>
