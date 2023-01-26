@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    @include('layouts.favicon')
     <title>{{ $title }} &middot; RPL</title>
     @yield('css')
     <link rel="stylesheet" href="/css/sidebar-dashboard.css" />
@@ -12,15 +13,10 @@
   <body>
     <input type="checkbox" hidden id="checkbox-collapse" class="checkbox-collapse">
     <input type="checkbox" hidden id="checkbox-search" class="checkbox-search">
-    <header class="py-2 border-bottom bg-secondary-subtle">
-      @include('dashboard.layouts.header')
-    </header>
-    <aside class="d-none d-md-block">
-      @include('dashboard.layouts.aside')
-    </aside>
-    <main>
-      @yield('content')
-    </main>
+    @include('dashboard.layouts.header')
+    @include('dashboard.layouts.aside')
+    @yield('main')
+    @yield('modal')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
 </html>
