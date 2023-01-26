@@ -1,19 +1,20 @@
+<aside class="d-none d-md-block">
 <div class="flex-shrink-0 p-3 bg-white border-end responsive-sidebar bg-secondary-subtle">
   <ul class="list-unstyled ps-0">
     <li class="mb-1">
       <a href="/dashboard" class="single-link rounded link-dark text-decoration-none d-inline-flex btn btn-toggle{{ Request::is('dashboard') ? ' active' : '' }}"><i class="bi bi-grid-fill me-2"></i>Dashboard</a>
     </li>
     <li class="mb-1">
-      <a href="/dashboard/siswa" class="single-link rounded link-dark text-decoration-none d-inline-flex btn btn-toggle"><i class="bi bi-people-fill me-2{{ Request::is('dashboard/siswa') ? ' active' : '' }}"></i>Siswa</a>
+      <a href="/dashboard/siswa" class="single-link rounded link-dark text-decoration-none d-inline-flex btn btn-toggle{{ Request::is('dashboard/siswa') ? ' active' : '' }}"><i class="bi bi-people-fill me-2"></i>Siswa</a>
     </li>
     <li class="mb-1">
-      <a href="/dashboard/kelas" class="single-link rounded link-dark text-decoration-none d-inline-flex btn btn-toggle"><i class="bi bi-house-door-fill me-2{{ Request::is('dashboard/kelas') ? ' active' : '' }}"></i>Kelas</a>
+      <a href="/dashboard/kelas" class="single-link rounded link-dark text-decoration-none d-inline-flex btn btn-toggle{{ Request::is('dashboard/kelas') ? ' active' : '' }}"><i class="bi bi-house-door-fill me-2"></i>Kelas</a>
     </li>
     <li class="mb-1">
-      <a href="/dashboard/jurusan" class="single-link rounded link-dark text-decoration-none d-inline-flex btn btn-toggle"><i class="bi bi-file-earmark-fill me-2{{ Request::is('dashboard/jurusan') ? ' active' : '' }}"></i>Jurusan</a>
+      <a href="/dashboard/jurusan" class="single-link rounded link-dark text-decoration-none d-inline-flex btn btn-toggle{{ Request::is('dashboard/jurusan') ? ' active' : '' }}"><i class="bi bi-file-earmark-fill me-2"></i>Jurusan</a>
     </li>
     <li class="mb-1">
-      <a href="/dashboard/laporan" class="single-link rounded link-dark text-decoration-none d-inline-flex btn btn-toggle"><i class="bi bi-book-fill me-2{{ Request::is('dashboard/laporan') ? ' active' : '' }}"></i>Laporan</a>
+      <a href="/dashboard/laporan" class="single-link rounded link-dark text-decoration-none d-inline-flex btn btn-toggle{{ Request::is('dashboard/laporan') ? ' active' : '' }}"><i class="bi bi-book-fill me-2"></i>Laporan</a>
     </li>
     <li class="border-top my-3"></li>
     <li class="mb-1">
@@ -28,3 +29,4 @@
     </li>
   </ul>
 </div>
+</aside>

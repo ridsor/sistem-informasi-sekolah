@@ -44,7 +44,7 @@
               <form action="/login" method="post" class="form">
                 <img src="/img/logo-rpl.png" alt="" width="50" height="50" />
                 <h2 class="mt-2">Halo, Teman!</h2>
-                <p class="text-muted mb-5">Hanya admin yang dapat login ya...</p>
+                <p class="text-muted mb-5">Hanya admin yang dapat login ya...<br>Masukan email & password untuk login</p>
                 <div class="form-floating mb-3">
                   <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
                   <label for="floatingInput">Email address</label>

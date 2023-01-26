@@ -78,14 +78,28 @@ aside * {
     font-size: 14px !important;
 }
 
+.table th a {
+    text-decoration: none !important;
+    color: #212529;
+}
+
 @media (min-width: 768px) {
     .responsive-sidebar {
         height: calc(100vh - 54.7px);
         width: 200px !important;
     }
 
+    header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 10 !important;
+    }
+
     main {
         margin-left: 200px !important;
+        margin-top: 54.7px !important;
     }
 
     aside {
