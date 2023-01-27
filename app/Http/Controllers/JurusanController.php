@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Siswa;
+use App\Models\Jurusan;
 
-class SiswaController extends Controller
+class JurusanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        return view('dashboard.siswa.index',[
-            'title' => 'Siswa',
-            'siswas' => Siswa::sortable()->filter(request(['s','kelas','jurusan']))->paginate(10)->onEachSide(1)->fragment('siswa')->withQueryString(),
+        return view('dashboard.jurusan.index',[
+            'title' => 'Jurusan',
+            'jurusans' => Jurusan::sortable()->filter(request(['s']))->paginate(10)->OnEachSide(1)->fragment('jurusan')->withQueryString(),
         ]);
     }
 

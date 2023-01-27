@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
 use Illuminate\Http\Request;
-use App\Models\Siswa;
 
-class SiswaController extends Controller
+class KelasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        return view('dashboard.siswa.index',[
-            'title' => 'Siswa',
-            'siswas' => Siswa::sortable()->filter(request(['s','kelas','jurusan']))->paginate(10)->onEachSide(1)->fragment('siswa')->withQueryString(),
+        return view('dashboard.kelas.index',[
+            'title' => 'Kelas',
+            'kelass' => Kelas::sortable()->filter(request(['jurusan','kelas','s']))->paginate(10)->onEachSide(1)->fragment('kelas')->withQueryString(),
         ]);
     }
 
