@@ -22,11 +22,13 @@
     <div class="d-flex align-items-center justify-content-end">
       @if(!Request::is('dashboard')) 
       <form class="w-100 me-3 d-none d-md-block" role="search">
-        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="s">
       </form>
+      @if(!Request::is('dashboard/jurusan') && !Request::is('dashboard/laporan'))
       <button type="button" class="d-none d-md-block btn btn-outline-secondary btn-sm me-3" data-bs-toggle="modal" data-bs-target="#modalFilter">
         <i class="bi bi-three-dots-vertical"></i>
       </button>
+      @endif
       <button type="button" class="d-md-none btn p-0 border-0 me-2">
         <label for="checkbox-search" class="btn btn-outline-secondary btn-sm">
           <i class="bi bi-search"></i>

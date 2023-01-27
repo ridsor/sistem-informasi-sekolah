@@ -48,13 +48,64 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Kelas::create([
+            'jurusan_id' => 4,
             'nm_kelas' => 'XD',
         ]);
         Kelas::create([
+            'jurusan_id' => 4,
             'nm_kelas' => 'XID',
         ]);
         Kelas::create([
+            'jurusan_id' => 4,
+            'nm_kelas' => 'XIID',
+        ]);
+        Kelas::create([
+            'jurusan_id' => 3,
+            'nm_kelas' => 'XIID',
+        ]);
+        Kelas::create([
+            'jurusan_id' => 2,
+            'nm_kelas' => 'XIID',
+        ]);
+        Kelas::create([
+            'jurusan_id' => 1,
+            'nm_kelas' => 'XIID',
+        ]);
+        Kelas::create([
+            'jurusan_id' => 3,
             'nm_kelas' => 'XID',
+        ]);
+        Kelas::create([
+            'jurusan_id' => 3,
+            'nm_kelas' => 'XD',
+        ]);
+        Kelas::create([
+            'jurusan_id' => 2,
+            'nm_kelas' => 'XID',
+        ]);
+        Kelas::create([
+            'jurusan_id' => 2,
+            'nm_kelas' => 'XD',
+        ]);
+        Kelas::create([
+            'jurusan_id' => 1,
+            'nm_kelas' => 'XID',
+        ]);
+        Kelas::create([
+            'jurusan_id' => 1,
+            'nm_kelas' => 'XD',
+        ]);
+        Kelas::create([
+            'jurusan_id' => 3,
+            'nm_kelas' => 'XIIB',
+        ]);
+        Kelas::create([
+            'jurusan_id' => 3,
+            'nm_kelas' => 'XIB',
+        ]);
+        Kelas::create([
+            'jurusan_id' => 3,
+            'nm_kelas' => 'XB',
         ]);
     }
 }
