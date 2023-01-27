@@ -32,15 +32,7 @@ class Siswa extends Model
     
     protected $with = ['jurusan'];
 
-    public function jurusan() {
-        return $this->belongsTo(Jurusan::class);
-    }
-
-    public function getRouteKeyName() {
-        return 'slug';
-    }
-
-    public $sortable = [
+    protected $sortable = [
         'nm_siswa',
         'tahun_ajaran',
         'ayah',
@@ -51,6 +43,34 @@ class Siswa extends Model
         'tanggal_lahir',
         'nis',
         'nisn',
-        'nohp'
+        'nohp',
     ];
+
+    public function scopeFilter($query, array $filters) {
+        $query->when($filters['s'] ?? false, fn($query, $s) =>
+            $query->where('nm_siswa', 'like', '%'.$s.'%')
+            ->orWhere('nisn', 'like', '%'.$s.'%')
+            ->orWhere('nis', 'like', '%'.$s.'%')
+        );
+
+        // $query->when($filters['kelas'] ?? false, fn($query, $kelas) =>
+        //     $query->whereHas('kelas', fn($query) =>
+        //         $query->where('nm_kelas', strtoupper($kelas))
+        //     )
+        // );
+
+        $query->when($filters['jurusan'] ?? false, fn($query, $jurusan) =>
+            $query->whereHas('jurusan', fn($query) =>
+                $query->where('slug', $jurusan)
+            )
+        );
+    }
+
+    public function jurusan() {
+        return $this->belongsTo(Jurusan::class);
+    }
+
+    public function getRouteKeyName() {
+        return 'slug';
+    }
 }
