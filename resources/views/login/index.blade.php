@@ -42,22 +42,36 @@
             </div>
             <div class="col-md-6 text-center fs-14 container-form d-flex align-items-center justify-content-center">
               <form action="/login" method="post" class="form">
+                @csrf
                 <img src="/img/logo-rpl.png" alt="" width="50" height="50" />
                 <h2 class="mt-2">Halo, Teman!</h2>
                 <p class="text-muted mb-5">Hanya admin yang dapat login ya...<br>Masukan email & password untuk login</p>
+                @if(session()->has('loginError'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('loginError') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
+                  <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="floatingInput" placeholder="name@example.com" value="{{ old('email') }}"/>
                   <label for="floatingInput">Email address</label>
-                  <i class="bi bi-a">@</i>
+                  @error('email')
+                  <div class="invalid-feedback text-start">
+                     {{ $message }}
+                  </div>
+                  @enderror
                 </div>
                 <div class="form-floating mb-1">
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
+                  <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="floatingPassword" placeholder="Password" />
                   <label for="floatingPassword">Password</label>
-                  <i class="bi bi-lock"></i>
+                  @error('password')
+                  <div class="invalid-feedback text-start">
+                    {{ $message }}
+                  </div>
+                  @enderror
                 </div>
-
                 <div class="checkbox mb-4 d-flex">
-                  <label> <input type="checkbox" value="remember-me" /> Remember Me </label>
+                  <label> <input type="checkbox" name="remember-me"/> Remember Me </label>
                 </div>
                 <hr class="featurette-divider" />
                 <button class="w-100 btn btn-lg btn-primary fs-6" type="submit">Sign in</button>

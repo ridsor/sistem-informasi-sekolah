@@ -16,7 +16,7 @@ class KelasController extends Controller
     {
         return view('dashboard.kelas.index',[
             'title' => 'Kelas',
-            'kelass' => Kelas::sortable()->filter(request(['jurusan','kelas','s']))->paginate(10)->onEachSide(1)->fragment('kelas')->withQueryString(),
+            'kelass' => Kelas::sortable()->filter(request(['j','s']))->paginate(10)->onEachSide(1)->fragment('kelas')->withQueryString(),
         ]);
     }
 
@@ -27,9 +27,9 @@ class KelasController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('admin');
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -38,9 +38,10 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->authorize('admin');
+        
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -49,9 +50,8 @@ class KelasController extends Controller
      */
     public function show($id)
     {
-        //
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -60,9 +60,10 @@ class KelasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->authroize('admin');
+        
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -72,9 +73,10 @@ class KelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->authroize('admin');
+        
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -83,6 +85,7 @@ class KelasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->authroize('admin');
+        
     }
 }

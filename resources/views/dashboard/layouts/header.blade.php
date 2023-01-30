@@ -7,22 +7,35 @@
       </label>
     </button>
     <form class="w-100 mx-2" role="search">
-      <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+      <div class="input-group">
+          <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="s">
+          <button class="btn btn-outline-secondary" type="submit" id="btn-search"><i class="bi bi-search"></i></button>
+      </div>
     </form>
+    @if(!Request::is('dashboard/jurusan') && !Request::is('dashboard/laporan'))
     <button type="button" class="d-md-none btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modalFilter">
       <i class="bi bi-three-dots-vertical"></i>
     </button>
+    @endif
   </div>
   @endif  
   <nav class="container-fluid gap-3 align-items-center d-grid" style="grid-template-columns: 1fr 2fr;">
-    <div>
-      <img src="/img/profile.png" alt="" width="35" height="35" class="d-inline-block align-text-top rounded-circle"/>
-      <span class="account-name fw-semibold fs-6 d-none d-md-inline-block">Administator</span>
+    <div class="section-left">
+      <img src="/img/profile.png" alt="" width="35" height="35" class="d-inline-block rounded-circle"/>
+      <span class="account-name fw-semibold fs-6 d-inline-block ms-2">{{ auth()->user()->name }}</span>
+      <button type="button" class="d-md-block d-none btn p-0 border-0 menu">
+        <label for="checkbox-collapse" class="btn btn-outline-secondary btn-sm">
+          <i class="bi bi-list"></i>
+        </label>
+      </button>
     </div>       
     <div class="d-flex align-items-center justify-content-end">
       @if(!Request::is('dashboard')) 
       <form class="w-100 me-3 d-none d-md-block" role="search">
-        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="s">
+        <div class="input-group">
+          <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="s">
+          <button class="btn btn-outline-secondary" type="submit" id="btn-search"><i class="bi bi-search"></i></button>
+        </div>
       </form>
       @if(!Request::is('dashboard/jurusan') && !Request::is('dashboard/laporan'))
       <button type="button" class="d-none d-md-block btn btn-outline-secondary btn-sm me-3" data-bs-toggle="modal" data-bs-target="#modalFilter">
