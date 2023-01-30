@@ -48,7 +48,7 @@
 }
 
 .account-name {
-    transform: translate(5px, 5px);
+    vertical-align: middle;
 }
 
 .responsive-sidebar {
@@ -57,8 +57,8 @@
 }
 
 .checkbox-collapse:checked ~ aside {
-    display: block !important;
-    /* position: static !important; */
+    visibility: visible;
+    height: 303.92px !important;
 }
 
 .checkbox-search:checked + header > .container-search {
@@ -72,6 +72,10 @@
 
 aside {
     position: inherit;
+    height: 0 !important;
+    visibility: hidden;
+    transition: 1s ease-in-out;
+    overflow: hidden !important;
 }
 
 aside * {
@@ -83,10 +87,23 @@ aside * {
     color: #212529;
 }
 
+nav .section-left {
+    max-width: calc(200px - 12px) !important;
+    width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: min-content min-content;
+    align-items: center;
+    align-content: start;
+}
+nav .section-left .menu {
+    justify-self: end;
+}
+
 @media (min-width: 768px) {
     .responsive-sidebar {
-        height: calc(100vh - 54.7px);
-        width: 200px !important;
+        border-right: 1px solid rgb(222, 226, 230);
+        height: 100%;
     }
 
     header {
@@ -99,11 +116,30 @@ aside * {
 
     main {
         margin-left: 200px !important;
-        margin-top: 54.7px !important;
+        margin-top: 53px !important;
+        min-height: calc(100vh - 54.7px) !important;
+        transition: margin-left 1s ease-in-out;
+        background-color: #fff;
     }
 
     aside {
         position: fixed;
-        top: 54.7px;
+        width: 200px !important;
+        top: 53px;
+        visibility: visible;
+        height: calc(100vh - 54.7px) !important;
+        transition: none;
+    }
+
+    .checkbox-collapse:checked ~ aside {
+        height: calc(100vh - 54.7px) !important;
+    }
+
+    .checkbox-collapse:checked ~ main {
+        margin-left: 0 !important;
+    }
+
+    .responsive-sidebar {
+        overflow: hidden;
     }
 }

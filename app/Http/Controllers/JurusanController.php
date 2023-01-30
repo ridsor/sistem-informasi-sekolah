@@ -27,6 +27,7 @@ class JurusanController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         //
     }
 
@@ -38,9 +39,10 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('admin');
         //
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -51,7 +53,7 @@ class JurusanController extends Controller
     {
         //
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -60,9 +62,10 @@ class JurusanController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('admin');
         //
     }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -72,9 +75,10 @@ class JurusanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('admin');
         //
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -83,6 +87,7 @@ class JurusanController extends Controller
      */
     public function destroy($id)
     {
+        $this->authorize('admin');
         //
     }
 }

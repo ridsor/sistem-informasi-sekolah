@@ -1,5 +1,5 @@
-<aside class="d-none d-md-block">
-<div class="flex-shrink-0 p-3 bg-white border-end responsive-sidebar bg-secondary-subtle">
+<aside>
+<div class="flex-shrink-0 p-3 bg-white responsive-sidebar bg-secondary-subtle">
   <ul class="list-unstyled ps-0">
     <li class="mb-1">
       <a href="/dashboard" class="single-link rounded link-dark text-decoration-none d-inline-flex btn btn-toggle{{ Request::is('dashboard') ? ' active' : '' }}"><i class="bi bi-grid-fill me-2"></i>Dashboard</a>
