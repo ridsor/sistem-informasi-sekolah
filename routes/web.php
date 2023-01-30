@@ -20,8 +20,10 @@ use App\Http\Controllers\JurusanController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/login', [LoginController::class, 'index']);
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::resource('/dashboard/siswa', SiswaController::class)->except('show');
-Route::resource('/dashboard/kelas', KelasController::class)->except('show');
-Route::resource('/dashboard/jurusan', JurusanController::class)->except('show');
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::resource('/dashboard/siswa', SiswaController::class)->except('show')->middleware('auth');
+Route::resource('/dashboard/kelas', KelasController::class)->except('show')->middleware('auth');
+Route::resource('/dashboard/jurusan', JurusanController::class)->except('show')->middleware('auth');

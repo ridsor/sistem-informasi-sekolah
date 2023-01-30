@@ -23,9 +23,9 @@ class Kelas extends Model
     }
 
     public function scopeFilter($query, array $filters) {
-        $query->when($filters['jurusan'] ?? false, fn($query, $jurusan) =>
+        $query->when($filters['j'] ?? false, fn($query, $j) =>
             $query->whereHas('jurusan', fn($query) =>
-                $query->where('slug',$jurusan)
+                $query->where('slug',$j)
             )
         );
 

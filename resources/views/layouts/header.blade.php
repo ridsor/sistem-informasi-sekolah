@@ -7,7 +7,7 @@
     <div>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="btn btn-sm btn-outline-secondary" href="/login"><i class="bi bi-person"></i></a>
+          <a class="btn btn-sm btn-outline-secondary"@auth href="/dashboard"@else href="/login"@endauth><i class="bi bi-person"></i></a>
         </li>
       </ul>
     </div>

@@ -59,10 +59,50 @@ class Siswa extends Model
         //     )
         // );
 
-        $query->when($filters['jurusan'] ?? false, fn($query, $jurusan) =>
+        $query->when($filters['j'] ?? false, fn($query, $j) =>
             $query->whereHas('jurusan', fn($query) =>
-                $query->where('slug', $jurusan)
+                $query->where('slug', $j)
             )
+        );
+
+        $query->when($filters['tmpt_lhr'] ?? false, fn($query, $t) =>
+            $query->where('tempat_lahir', $t)
+        );
+
+        $query->when($filters['tngl_lhr'] ?? false, fn($query, $t) =>
+            $query->where('tanggal_lahir', $t)
+        );
+
+        $query->when($filters['j_k'] ?? false, fn($query, $x) =>
+            $query->where('jenis_kelamin', $x)
+        );
+
+        $query->when($filters['agm'] ?? false, fn($query, $x) =>
+            $query->where('agama', $x)
+        );
+        
+        $query->when($filters['thn_ajrn'] ?? false, fn($query, $x) =>
+            $query->where('tahun_ajaran', 'like', '%'.$x.'%')
+        );
+
+        $query->when($filters['np'] ?? false, fn($query, $x) =>
+            $query->where('nohp', 'like', '%'.$x.'%')
+        );
+
+        $query->when($filters['nm_a'] ?? false, fn($query, $x) =>
+            $query->where('ayah', 'like', '%'.$x.'%')
+        );
+
+        $query->when($filters['nm_i'] ?? false, fn($query, $x) =>
+            $query->where('ibu', 'like', '%'.$x.'%')
+        );
+
+        $query->when($filters['nm_w'] ?? false, fn($query, $x) =>
+            $query->where('wali', 'like', '%'.$x.'%')
+        );
+        
+        $query->when($filters['almt'] ?? false, fn($query, $x) =>
+            $query->where('alamat', $x)
         );
     }
 
