@@ -18,12 +18,12 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
         
-        if(Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+        if(!Auth::attempt($credentials, $request->remember_me)) {
+            return back()->with('loginError',trans('auth.failed'));
         }
-
-        return back()->with('loginError',trans('auth.failed'));
+        
+        $request->session()->regenerate();
+        return redirect()->intended('/dashboard');
     }
     
     public function logout(Request $request) {

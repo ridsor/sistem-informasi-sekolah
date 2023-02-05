@@ -101,6 +101,10 @@ nav .section-left .menu {
 }
 
 @media (min-width: 768px) {
+    .rounded-md-3 {
+        border-radius: 8px !important;
+    }
+
     .responsive-sidebar {
         border-right: 1px solid rgb(222, 226, 230);
         height: 100%;
