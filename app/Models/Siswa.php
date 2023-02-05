@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Siswa extends Model
 {
     use HasFactory;
     use Sortable;
+    use Sluggable;
     protected $table = 'siswa';
     protected $fillable = [
         "jurusan_id",
@@ -113,4 +115,13 @@ class Siswa extends Model
     public function getRouteKeyName() {
         return 'slug';
     }
+
+    public function sluggable(): array
+{
+    return [
+        'slug' => [
+            'source' => ['nm_siswa']
+        ]
+    ];
+}
 }

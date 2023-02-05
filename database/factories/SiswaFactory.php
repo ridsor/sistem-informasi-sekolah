@@ -33,7 +33,7 @@ class SiswaFactory extends Factory
             'ibu' => $this->faker->name(),
             'wali' => '',
             'tahun_ajaran' => $this->faker->randomElement(['2019/2020', '2020/2021', '2021/2022']),
-            'foto' => $this->faker->unique()->url(),
+            'foto' => '',
         ];
     }
 }

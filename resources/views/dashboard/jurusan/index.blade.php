@@ -10,13 +10,14 @@
       @can('admin')
       <a href="/dashboard/jurusan/create" class="tambah-siswa position-fixed btn btn-success rounded-circle px-1 py-1" style="padding-left: .6rem !important; padding-right: .6rem !important"><i class="bi bi-plus fs-4"></i></a>
       @endcan
-      <div class="container-fluid">
-        <h2 class="fs-5 text-dark d-inline-block mt-3 mb-2">Jurusan</h2>
-        <div class="row">
-          <div class="col-md-8">
-            <div class="bg-light border rounded-3">
+      <div class="container-fluid p-0 px-md-3">
+        <h2 class="fs-5 text-dark d-inline-block mt-3 mb-2 ms-2 ms-md-0">Jurusan</h2>
+        <div class="row m-0">
+          <div class="col-md-8 p-0">
+            <div class="bg-light border rounded-md-3">
+              @if ($jurusans->count())
               <div class="table-responsive">
-                <table class="table table-striped table-bordered table-sm my-3">
+                <table class="table table-striped table-bordered table-sm mt-3 mb-0">
                   <thead>
                     <tr>
                       <th scope="col" class="text-center">No</th>
@@ -44,9 +45,18 @@
                   </tbody>
                 </table>
               </div>     
-              <div class="d-flex justify-content-center">
+              <div class="d-flex justify-content-center mt-3">
                 {{ $jurusans->links() }}
               </div>
+              @else
+              @if (Request::input('s'))
+              <h2 class="fs-3 mx-4 py-3 border-bottom"><strong class="text-danger">{{ Request::input('s') }}</strong> - hasil pencarian</h2>
+              @else
+              <h2 class="fs-3 mx-4 py-3 border-bottom">hasil pencarian</h2>
+              @endif
+              <p class="mx-4">Jika Anda tidak puas dengan hasilnya silahkan melakukan pencarian lain</p>
+              <div class="display-6 fs-3 mb-3 mx-4 py-5">Tidak ada hasil untuk pencarian anda</div>
+              @endif
             </div>
           </div>
         </div>

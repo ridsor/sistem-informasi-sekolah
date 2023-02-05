@@ -71,7 +71,7 @@
                   @enderror
                 </div>
                 <div class="checkbox mb-4 d-flex">
-                  <label> <input type="checkbox" name="remember-me"/> Remember Me </label>
+                  <label> <input type="checkbox" name="remember_me"/> Remember Me </label>
                 </div>
                 <hr class="featurette-divider" />
                 <button class="w-100 btn btn-lg btn-primary fs-6" type="submit">Sign in</button>
