@@ -1,18 +1,18 @@
 <header class="py-2 border-bottom bg-secondary-subtle">
-  @if(!Request::is('dashboard'))
+  @if(!Request::is('dashboard') && !Request::is('dashboard/siswa/*') && !Request::is('dashboard/kelas/*') && !Request::is('dashboard/jurusan/*'))
   <div class="container-search container-fluid align-items-center">
     <button type="button" class="d-md-none btn border-0 p-0">
       <label for="checkbox-search" class="btn btn-danger btn-sm">
         <i class="bi bi-x-lg"></i>
       </label>
     </button>
-    <form class="w-100 mx-2" role="search">
+    <form class="w-100 mx-2" role="search" id="searchForm">
       <div class="input-group">
           <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="s">
           <button class="btn btn-outline-secondary" type="submit" id="btn-search"><i class="bi bi-search"></i></button>
-      </div>
-    </form>
-    @if(!Request::is('dashboard/jurusan') && !Request::is('dashboard/laporan'))
+        </div>
+      </form>
+      @if(!Request::is('dashboard/jurusan') && !Request::is('dashboard/laporan'))
     <button type="button" class="d-md-none btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modalFilter">
       <i class="bi bi-three-dots-vertical"></i>
     </button>
@@ -30,8 +30,8 @@
       </button>
     </div>       
     <div class="d-flex align-items-center justify-content-end">
-      @if(!Request::is('dashboard')) 
-      <form class="w-100 me-3 d-none d-md-block" role="search">
+      @if(!Request::is('dashboard') && !Request::is('dashboard/siswa/*') && !Request::is('dashboard/kelas/*') && !Request::is('dashboard/jurusan/*')) 
+      <form class="w-100 me-3 d-none d-md-block" role="search" id="searchForm">
         <div class="input-group">
           <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="s">
           <button class="btn btn-outline-secondary" type="submit" id="btn-search"><i class="bi bi-search"></i></button>

@@ -5,7 +5,7 @@
 @endsection
 
 @section('main')
-<main>
+<main class="position-relative">
   <section class="container-fluid">
     <div class="row">
       <div class="col">
