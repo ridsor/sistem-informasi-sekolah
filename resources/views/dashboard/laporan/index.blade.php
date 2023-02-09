@@ -47,7 +47,10 @@
     
     filter = filter.filter((x) => {
       for(const element of inputsForm) {
-        if(element.name === x.name) return false;
+        if(element.name === x.name) {
+          element.value = x.value; 
+          return false;
+        }
       }
       return true;
     });
@@ -91,10 +94,11 @@
               <thead>
                 <tr>
                   <th scope="col" class="text-center">No</th>
-                  <th scope="col">@sortablelink('nm_siswa','Nama')</th>
+                  <th scope="col">@sortablelink('siswa.nm_siswa','Nama')</th>
                   <th scope="col">@sortablelink('siswa.nisn','NISN')</th>
                   <th scope="col">@sortablelink('siswa.nis','NIS')</th>
                   <th scope="col">@sortablelink('kelas','Kelas')</th>
+                  <th scope="col">@sortablelink('semester','Semester')</th>
                   <th scope="col">@sortablelink('tahun_ajaran','Tahun Ajaran')</th>
                   <th scope="col">@sortablelink('jurusan.nm_jurusan','Jurusan')</th>
                   <th scope="col">Foto</th>
@@ -111,12 +115,13 @@
                   <td>{{ $nilai->siswa->nisn }}</td>
                   <td>{{ $nilai->siswa->nis }}</td>
                   <td>{{ $nilai->kelas->nm_kelas }}</td>
-                  <td>{{ $nilai->siswa->tahun_ajaran }}</td>
+                  <td>{{ $nilai->semester }}</td>
+                  <td>{{ $nilai->tahun_ajaran }}</td>
                   <td>{{ $nilai->siswa->jurusan->nm_jurusan }}</td>
                   @if(empty($nilai->siswa->foto))
-                  <td><img src="/img/profile.png" alt="" class="rounded-circle" width="35" height="35"></td>
+                  <td class="text-center"><img src="/img/profile.png" alt="" class="rounded-circle" width="35" height="35"></td>
                   @else
-                  <td><img src="/{{ $nilai->siswa->foto }}" alt="" class="rounded-circle" width="35" height="35"></td>
+                  <td class="text-center"><img src="/{{ $nilai->siswa->foto }}" alt="" class="rounded-circle" width="35" height="35"></td>
                   @endif
                   @can('admin')
                   <td>
@@ -161,12 +166,23 @@
           </div>
           <div class="modal-body">
             <div class="input-group mb-2">
+              <span class="input-group-text" id="inputGroup-sizing-default">Kelas</span>
+              <input type="text" name="kls" id="input" class="form-control" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="mb-2">
+              <select class="form-select" name="smstr" id="input" aria-label="Default select">
+                <option selected value="">Semester</option>
+                <option value="ganjil">Ganjil</option>
+                <option value="genap">Genap</option>
+              </select>
+            </div>
+            <div class="input-group mb-2">
               <span class="input-group-text" id="inputGroup-sizing-default">Tempat Lahir</span>
-              <input type="text" name="tmpt_lhr" id="input" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="text" name="tmpt_lhr" id="input" class="form-control" aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="input-group mb-2">
               <span class="input-group-text" id="inputGroup-sizing-default">Tanggal Lahir</span>
-              <input type="date" class="form-control" id="input" name="tngl_lhr" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="date" class="form-control" id="input" name="tngl_lhr" aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="mb-2">
               <select class="form-select" name="agm" id="input" aria-label="Default select">
@@ -179,7 +195,7 @@
             </div>
             <div class="input-group mb-2">
               <span class="input-group-text" id="inputGroup-sizing-default">Alamat</span>
-              <input type="text" name="almt" class="form-control" id="input" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="text" name="almt" class="form-control" id="input" aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="mb-2">
               <select class="form-select" aria-label="Default select" name="j_k" id="input">
@@ -190,23 +206,23 @@
             </div>
             <div class="input-group mb-2">
               <span class="input-group-text" id="inputGroup-sizing-default">Nomor Telp</span>
-              <input type="text" class="form-control" id="input" name="np" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="text" class="form-control" id="input" name="np" aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="input-group mb-2">
               <span class="input-group-text" id="input" id="inputGroup-sizing-default">Nama Ayah</span>
-              <input type="text" class="form-control" name="nm_a" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="text" class="form-control" name="nm_a" aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="input-group mb-2">
               <span class="input-group-text" id="inputGroup-sizing-default">Nama Ibu</span>
-              <input type="text" class="form-control" id="input" name="nm_i" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="text" class="form-control" id="input" name="nm_i" aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="input-group mb-2">
               <span class="input-group-text" id="inputGroup-sizing-default">Nama Wali</span>
-              <input type="text" class="form-control" id="input" name="nm_w" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="text" class="form-control" id="input" name="nm_w" aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="input-group mb-2">
               <span class="input-group-text" id="inputGroup-sizing-default">Tahun Ajaran</span>
-              <input type="text" class="form-control" id="input" name="thn_ajrn" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+              <input type="text" class="form-control" id="input" name="thn_ajrn" aria-describedby="inputGroup-sizing-default">
             </div>
             <div class="mb-2">
               <select class="form-select" name="j" aria-label="Default select" id="input">

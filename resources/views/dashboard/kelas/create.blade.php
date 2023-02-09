@@ -25,6 +25,9 @@
             <div class="col-md-6">
               <div class="mb-3">
                 <select class="form-select p-3 @error('jurusan')is-invalid @enderror" aria-label="Default select" name="jurusan">
+                  @if(empty(old('jurusan'))) 
+                  <option selected value="">Jurusan</option>
+                  @endif
                   @foreach ($jurusan as $item)
                   @if ($item->id == old('jurusan'))
                   <option selected value="{{ $item->id }}">{{ $item->nm_jurusan }}</option>

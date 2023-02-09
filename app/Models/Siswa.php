@@ -51,8 +51,8 @@ class Siswa extends Model
     public function scopeFilter($query, array $filters) {
         $query->when($filters['s'] ?? false, fn($query, $s) =>
             $query->where('nm_siswa', 'like', '%'.$s.'%')
-            ->orWhere('nisn', 'like', '%'.$s.'%')
-            ->orWhere('nis', 'like', '%'.$s.'%')
+            ->orWhere('nisn', $s)
+            ->orWhere('nis', $s)
         );
 
         // $query->when($filters['kelas'] ?? false, fn($query, $kelas) =>

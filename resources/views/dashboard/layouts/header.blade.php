@@ -33,7 +33,7 @@
       @if(!Request::is('dashboard') && !Request::is('dashboard/siswa/*') && !Request::is('dashboard/kelas/*') && !Request::is('dashboard/jurusan/*')) 
       <form class="w-100 me-3 d-none d-md-block" role="search" id="searchForm">
         <div class="input-group">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="s">
+          <input type="search" class="form-control" placeholder="Search...@if(Request::is('dashboard/siswa') || Request::is('dashboard/laporan')) Nama\NISN\NIS @endif" aria-label="Search" name="s">
           <button class="btn btn-outline-secondary" type="submit" id="btn-search"><i class="bi bi-search"></i></button>
         </div>
       </form>
