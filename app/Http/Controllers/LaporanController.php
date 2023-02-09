@@ -17,8 +17,7 @@ class LaporanController extends Controller
     {
         return view('dashboard.laporan.index',[
             'title' => 'Laporan',
-            // 'nilais' => Nilai::sortable()->select('id','siswa_id','kelas_id')->paginate(10)->onEachSide(2)->fragment('laporan')->withQueryString(),
-            'nilais' => Nilai::sortable()->paginate(10)->onEachSide(2)->fragment('laporan')->withQueryString(),
+            'nilais' => Nilai::sortable()->filter(request(['s','j','kls','smstr','tmpt_lhr','tngl_lhr','j_k','agm','thn_ajrn','nm_a','nm_i','nm_w','almt','np']))->select('id','siswa_id','kelas_id','tahun_ajaran','semester')->paginate(10)->onEachSide(2)->fragment('laporan')->withQueryString(),
             'jurusans' => Jurusan::select('id','nm_jurusan')
         ]);
     }

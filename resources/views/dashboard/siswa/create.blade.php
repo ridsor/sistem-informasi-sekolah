@@ -82,6 +82,9 @@
           <div class="col-md-6">
             <div class="mb-3">
               <select class="form-select p-3 @error('agama')is-invalid @enderror" aria-label="Default select" name="agama">
+                @if(empty(old('agama'))) 
+                <option selected value="">Agama</option>
+                @endif
                 @foreach ($agama as $item)
                 @if ($item === old('agama'))
                 <option value="{{ $item }}" selected>{{ $item }}</option>
@@ -111,6 +114,9 @@
           <div class="col-md-6">
             <div class="mb-3">
               <select class="form-select p-3 @error('jenis_kelamin')is-invalid @enderror" aria-label="Default select" name="jenis_kelamin">
+                @if(empty(old('jenis_kelamin'))) 
+                <option selected value="">Jenis Kelamin</option>
+                @endif
                 @foreach ($jenis_kelamin as $item)
                 @if ($item === old('jenis_kelamin'))
                 <option selected value="{{ $item }}">{{ $item }}</option>
@@ -152,6 +158,9 @@
           <div class="col-md-6">
             <div class="mb-3">
               <select class="form-select p-3 @error('jurusan')is-invalid @enderror" aria-label="Default select" name="jurusan">
+                @if(empty(old('jurusan'))) 
+                <option selected value="">Jurusan</option>
+                @endif
                 @foreach ($jurusan as $item)
                 @if ($item->id == old('jurusan'))
                 <option selected value="{{ $item->id }}">{{ $item->nm_jurusan }}</option>

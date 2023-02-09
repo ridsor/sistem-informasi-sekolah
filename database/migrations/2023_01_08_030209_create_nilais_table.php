@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('kelas_id');
             $table->foreignId('siswa_id');
-            $table->enum('semester', ['ganjil', 'genap']);
-            $table->char('sikap', 1);
-            $table->char('kompetensi', 1);
-            $table->char('keterampilan', 1);
+            $table->enum('semester', ['Ganjil', 'Genap']);
+            $table->string('tahun_ajaran',9);
+            $table->string('sikap', 2);
+            $table->string('kompetensi', 2);
+            $table->string('keterampilan', 2);
             $table->timestamps();
         });
     }
