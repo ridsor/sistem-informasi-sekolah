@@ -1,23 +1,54 @@
 @extends('dashboard.layouts.main')
 
 @section('css')
-    <link rel="stylesheet" href="/css/kelas.css" />
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+@endsection
+
+@section('script')
+    <script>
+      const table = document.getElementById('table');
+      if(table) {
+        table.addEventListener('click', function(e) {
+          if(e.target.id === 'delete') {
+            Swal.fire({
+              title: 'Are you sure?',
+              text: "You won't be able to revert this!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, hapus!'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                const form = e.target.parentElement.parentElement;
+                form.submit();
+                Swal.fire(
+                  'Deleted!',
+                  'Your file has been deleted.',
+                  'success'
+                )
+              }
+            })
+          }
+        })
+      }
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @endsection
 
 @section('main')
     <main class="position-relative">
       @can('admin')
-      <a href="/dashboard/kelas/create" class="tambah-siswa position-fixed btn btn-success rounded-circle px-1 py-1" style="padding-left: .6rem !important; padding-right: .6rem !important"><i class="bi bi-plus fs-4"></i></a>
+      <a href="/dashboard/kelas/create" class="tambah-data position-fixed btn btn-success rounded-circle" style="padding-left: .7rem !important; padding-right: .7rem !important"><i class="bi bi-plus fs-4"></i></a>
       @endcan
       <div class="container-fluid px-md-3 p-0">
-        <h2 class="fs-5 text-dark d-inline-block mt-3 mb-2 ms-2 ms-md-0">Kelas</h2>
+        <h2 class="fs-5 text-dark d-inline-block py-3 mb-0 ms-2 ms-md-0">Kelas</h2>
         <div class="row m-0">
           <div class="col-md-8 p-0">
             <div class="bg-light border rounded-md-3">
               @if($kelass->count())
               <div class="table-responsive">
-                <table class="table table-striped table-bordered table-sm mb-0 mt-3">
+                <table class="table table-striped table-bordered table-sm mb-0 mt-3" id="table">
                   <thead>
                     <tr>
                       <th scope="col" class="text-center">No</th>
@@ -36,10 +67,11 @@
                       <td>{{ $kelas->jurusan->nm_jurusan }}</td>
                       @can('admin')
                       <td>
-                        <a href="/dashboard/kelas/{{ $kelas->id }}/edit" class="badge bg-warning rounded-pill"><i class="bi bi-pencil-square"></i></a>
-                        <form action="" class="d-inline">
+                        <a href="/dashboard/kelas/{{ $kelas->id }}/edit" class="badge bg-warning rounded-pill"><i class="bi bi-pencil-square aksi"></i></a>
+                        <form action="/dashboard/kelas/{{ $kelas->id }}" class="d-inline" method="post">
+                          @csrf
                           @method('delete')
-                          <button type="submit" class="badge bg-danger rounded-pill border-0"><i class="bi bi-trash"></i></button>
+                          <button type="button" class="border-0 p-0 bg-transparent"><i class="bi bi-trash badge bg-danger rounded-pill border-0 d-inline-block aksi" id="delete"></i></button>
                         </form>
                       </td>
                       @endcan

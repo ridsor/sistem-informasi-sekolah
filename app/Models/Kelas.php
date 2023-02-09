@@ -11,7 +11,7 @@ class Kelas extends Model
     use HasFactory;
     use Sortable;
     protected $table = 'kelas';
-    protected $fillable = ['nm_kelas','slug','jurusan_id'];
+    protected $fillable = ['nm_kelas','jurusan_id'];
     protected $sortable = ['nm_kelas'];
 
     public function siswa() {

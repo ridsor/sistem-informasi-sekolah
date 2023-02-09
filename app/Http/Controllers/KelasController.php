@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelas;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
@@ -28,6 +29,11 @@ class KelasController extends Controller
     public function create()
     {
         $this->authorize('admin');
+
+        return view('dashboard.kelas.create',[
+            'title' => 'Kelas',
+            'jurusan' => Jurusan::all(),
+        ]);
     }
     
     /**
@@ -40,6 +46,17 @@ class KelasController extends Controller
     {
         $this->authorize('admin');
         
+        $validatedData = $request->validate([
+            'nm_kelas' => 'required',
+            'jurusan' => 'required'
+        ]);
+
+        $validatedData['jurusan_id'] = $request->jurusan;
+        unset($validatedData['jurusan']);
+
+        Kelas::create($validatedData);
+
+        return redirect('/dashboard/kelas')->with('success','Data <strong>kelas</strong> baru berhasil ditambahkan!');
     }
     
     /**
@@ -58,10 +75,15 @@ class KelasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Kelas $kela)
     {
-        $this->authroize('admin');
+        $this->authorize('admin');
         
+        return view('dashboard.kelas.edit', [
+            'title' => 'Kelas',
+            'kelas' => $kela,
+            'jurusan' => Jurusan::all(),
+        ]);
     }
     
     /**
@@ -71,10 +93,21 @@ class KelasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Kelas $kela)
     {
-        $this->authroize('admin');
+        $this->authorize('admin');
         
+        $rules = [
+            'nm_kelas' => 'required',
+            'jurusan' => 'required',
+        ];
+
+        $validatedData['jurusan_id'] = $request->jurusan;
+        unset($validatedData['jurusan']);
+
+        Kelas::where('id',$kela->id)->update($validatedData);
+
+        return redirect('/dashboard/kelas')->with('success','Data <strong>kelas</strong> telah diperbarui!');
     }
     
     /**
@@ -83,9 +116,12 @@ class KelasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Kelas $kela)
     {
-        $this->authroize('admin');
+        $this->authorize('admin');
         
+        Kelas::destroy($kela->id);
+
+        return redirect('/dashboard/kelas');
     }
 }

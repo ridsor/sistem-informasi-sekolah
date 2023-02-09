@@ -19,7 +19,7 @@ class SiswaController extends Controller
     {
         return view('dashboard.siswa.index',[
             'title' => 'Siswa',
-            'siswas' => Siswa::sortable()->filter(request(['s','j','tmpt_lhr','tngl_lhr','j_k','agm','thn_ajrn','nm_a','nm_i','nm_w','almt','np']))->paginate(10)->onEachSide(1)->fragment('siswa')->withQueryString(),
+            'siswas' => Siswa::sortable()->filter(request(['s','j','tmpt_lhr','tngl_lhr','j_k','agm','thn_ajrn','nm_a','nm_i','nm_w','almt','np']))->paginate(10)->onEachSide(2)->fragment('siswa')->withQueryString(),
             'jurusans' => Jurusan::all(),
         ]);
     }
@@ -81,7 +81,7 @@ class SiswaController extends Controller
 
         Siswa::create($validatedData);
 
-        return redirect('/dashboard/siswa')->with('success','Data siswa baru telah ditambahkan!');
+        return redirect('/dashboard/siswa')->with('success','Data <strong>siswa</strong> baru telah ditambahkan!');
     }
     
     /**
@@ -155,7 +155,7 @@ class SiswaController extends Controller
 
         Siswa::where('id',$siswa->id)->update($validatedData);
 
-        return redirect('/dashboard/siswa')->with('success', 'Data <strong>siswa</strong> telah diperbarui');
+        return redirect('/dashboard/siswa')->with('success', 'Data <strong>siswa</strong> telah diperbarui!');
     }
     
     /**
@@ -166,7 +166,7 @@ class SiswaController extends Controller
      */
     public function destroy(Siswa $siswa)
     {
-        $this->authorize('admin');
+        $this->authorize('admin');  
 
         if($siswa->foto) {
             Storage::delete($siswa->foto);
@@ -174,6 +174,6 @@ class SiswaController extends Controller
 
         Siswa::destroy($siswa->id);
 
-        return redirect('/dashboard/siswa')->with('success','Data siswa telah dihapus');
+        return redirect('/dashboard/siswa');
     }
 }

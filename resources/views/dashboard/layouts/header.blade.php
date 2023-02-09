@@ -12,7 +12,7 @@
           <button class="btn btn-outline-secondary" type="submit" id="btn-search"><i class="bi bi-search"></i></button>
         </div>
       </form>
-      @if(!Request::is('dashboard/jurusan') && !Request::is('dashboard/laporan'))
+      @if(!Request::is('dashboard/jurusan'))
     <button type="button" class="d-md-none btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modalFilter">
       <i class="bi bi-three-dots-vertical"></i>
     </button>
@@ -37,7 +37,7 @@
           <button class="btn btn-outline-secondary" type="submit" id="btn-search"><i class="bi bi-search"></i></button>
         </div>
       </form>
-      @if(!Request::is('dashboard/jurusan') && !Request::is('dashboard/laporan'))
+      @if(!Request::is('dashboard/jurusan'))
       <button type="button" class="d-none d-md-block btn btn-outline-secondary btn-sm me-3" data-bs-toggle="modal" data-bs-target="#modalFilter">
         <i class="bi bi-three-dots-vertical"></i>
       </button>

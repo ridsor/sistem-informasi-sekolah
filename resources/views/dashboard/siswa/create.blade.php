@@ -1,10 +1,5 @@
 @extends('dashboard.layouts.main')
 
-@section('css')
-<link rel="stylesheet" href="/css/siswa.css" />
-
-@endsection
-
 @section('script')
 <script>
   function previewImage() {
@@ -31,7 +26,7 @@
           <h4 class="fs-6 mb-3">A. Data Pendaftar</h4>
           <div class="col-md-6">
             <div class="form-floating mb-3">
-              <input type="number" class="form-control @error('nisn')is-invalid @enderror" name="nisn" id="nisn" placeholder="NISN" value="{{ old('nisn') }}" value="{{ old('nisn') }}"/>
+              <input type="number" class="form-control @error('nisn')is-invalid @enderror" name="nisn" id="nisn" placeholder="NISN" value="{{ old('nisn') }}"/>
               <label for="nisn">NISN</label>
               @error('nisn')
               <div class="invalid-feedback text-start">
