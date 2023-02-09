@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,5 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::resource('/dashboard/siswa', SiswaController::class)->except('show')->middleware('auth');
 Route::resource('/dashboard/kelas', KelasController::class)->except('show')->middleware('auth');
 Route::resource('/dashboard/jurusan', JurusanController::class)->except('show')->middleware('auth');
+Route::resource('/dashboard/laporan', LaporanController::class)->middleware('auth');
+Route::get('/dashboard/jurusan/create-slug', [JurusanController::class, 'createSlug'])->middleware('auth');

@@ -117,11 +117,11 @@ class Siswa extends Model
     }
 
     public function sluggable(): array
-{
-    return [
-        'slug' => [
-            'source' => ['nm_siswa']
-        ]
-    ];
-}
+    {
+        return [
+            'slug' => [
+                'source' => ['nm_siswa']
+            ]
+        ];
+    }
 }

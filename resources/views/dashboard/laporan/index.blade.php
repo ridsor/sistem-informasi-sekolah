@@ -1,7 +1,6 @@
 @extends('dashboard.layouts.main')
 
 @section('css')
-<link rel="stylesheet" href="/css/siswa.css" />
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 @endsection
@@ -74,10 +73,10 @@
 @section('main') 
     <main class="position-relative">
       @can('admin')
-      <a href="/dashboard/siswa/create" class="tambah-data position-fixed btn btn-success rounded-circle" style="padding-left: .7rem !important; padding-right: .7rem !important"><i class="bi bi-plus fs-4"></i></a>
+      <a href="/dashboard/laporan/create" class="tambah-data position-fixed btn btn-success rounded-circle px-1 py-1" style="padding-left: .6rem !important; padding-right: .6rem !important"><i class="bi bi-plus fs-4"></i></a>
       @endcan
       <div class="container-fluid mb-3 p-0 px-md-3">
-        <h2 class="fs-5 text-dark ms-2 ms-md-0 py-3 mb-0">Siswa</h2>
+        <h2 class="fs-5 text-dark ms-2 ms-md-0 py-3 mb-0">Laporan</h2>
         @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {!! session('success') !!}
@@ -85,24 +84,17 @@
         </div>
         @endif
         <div class="bg-light border rounded-md-3 overflow-hidden">
-          @if($siswas->count())
+          @if($nilais->count())
+          <h3 class="fs-6 text-dark ms-2 ms-md-0 mb-0 p-2 text-muted fw-normal">Daftar siswa</h3>
           <div class="table-responsive">
-            <table class="table table-striped table-bordered table-sm mb-0 mt-3" id="table">
+            <table class="table table-striped table-bordered table-sm mb-0" id="table">
               <thead>
                 <tr>
                   <th scope="col" class="text-center">No</th>
                   <th scope="col">@sortablelink('nm_siswa','Nama')</th>
-                  <th scope="col">@sortablelink('nisn','NISN')</th>
-                  <th scope="col">@sortablelink('nis','NIS')</th>
-                  <th scope="col">@sortablelink('tempat_lahir','Tempat Lahir')</th>
-                  <th scope="col">@sortablelink('tanggal_lahir','Tanggal Lahir')</th>
-                  <th scope="col">Agama</th>
-                  <th scope="col">@sortablelink('alamat','Alamat')</th>
-                  <th scope="col">Jenis Kelamin</th>
-                  <th scope="col">@sortablelink('nohp','Nomor Telp')</th>
-                  <th scope="col">@sortablelink('ayah','Nama Ayah')</th>
-                  <th scope="col">@sortablelink('ibu','Nama Ibu')</th>
-                  <th scope="col">@sortablelink('wali','Nama Wali')</th>
+                  <th scope="col">@sortablelink('siswa.nisn','NISN')</th>
+                  <th scope="col">@sortablelink('siswa.nis','NIS')</th>
+                  <th scope="col">@sortablelink('kelas','Kelas')</th>
                   <th scope="col">@sortablelink('tahun_ajaran','Tahun Ajaran')</th>
                   <th scope="col">@sortablelink('jurusan.nm_jurusan','Jurusan')</th>
                   <th scope="col">Foto</th>
@@ -112,32 +104,25 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach($siswas as $index => $siswa)
+                @foreach($nilais as $index => $nilai)
                 <tr>
-                  <td class="text-center">{{ $index + $siswas->firstItem() }}</td>
-                  <td>{{ $siswa->nm_siswa }}</td>
-                  <td>{{ $siswa->nisn }}</td>
-                  <td>{{ $siswa->nis }}</td>
-                  <td>{{ $siswa->tempat_lahir }}</td>
-                  <td>{{ $siswa->tanggal_lahir }}</td>
-                  <td>{{ $siswa->agama }}</td>
-                  <td>{{ $siswa->alamat }}</td>
-                  <td>{{ $siswa->jenis_kelamin }}</td>
-                  <td>{{ $siswa->nohp }}</td>
-                  <td>{{ (empty($siswa->ayah))? '-' : $siswa->ayah }}</td>
-                  <td>{{ (empty($siswa->ibu))? '-' : $siswa->ibu }}</td>
-                  <td>{{ (empty($siswa->wali))? '-' : $siswa->wali }}</td>
-                  <td>{{ $siswa->tahun_ajaran }}</td>
-                  <td>{{ $siswa->jurusan->nm_jurusan }}</td>
-                  @if(empty($siswa->foto))
+                  <td class="text-center">{{ $index + $nilais->firstItem() }}</td>
+                  <td>{{ $nilai->siswa->nm_siswa }}</td>
+                  <td>{{ $nilai->siswa->nisn }}</td>
+                  <td>{{ $nilai->siswa->nis }}</td>
+                  <td>{{ $nilai->kelas->nm_kelas }}</td>
+                  <td>{{ $nilai->siswa->tahun_ajaran }}</td>
+                  <td>{{ $nilai->siswa->jurusan->nm_jurusan }}</td>
+                  @if(empty($nilai->siswa->foto))
                   <td><img src="/img/profile.png" alt="" class="rounded-circle" width="35" height="35"></td>
                   @else
-                  <td><img src="/{{ $siswa->foto }}" alt="" class="rounded-circle" width="35" height="35"></td>
+                  <td><img src="/{{ $nilai->siswa->foto }}" alt="" class="rounded-circle" width="35" height="35"></td>
                   @endif
                   @can('admin')
                   <td>
-                    <a href="/dashboard/siswa/{{ $siswa->slug }}/edit" class="badge bg-warning rounded-pill"><i class="bi bi-pencil-square aksi"></i></a>
-                    <form method="post" class="d-inline-block" action="/dashboard/siswa/{{ $siswa->slug }}">
+                    <a href="/dashboard/laporan/{{ $nilai->id }}" class="badge bg-success rounded-pil"><i class="bi bi-eye aksi"></i></a>
+                    <a href="/dashboard/laporan/{{ $nilai->id }}/edit" class="badge bg-warning rounded-pill"><i class="bi bi-pencil-square aksi"></i></a>
+                    <form method="post" class="d-inline-block" action="/dashboard/siswa/{{ $nilai->id }}">
                       @csrf
                       @method('delete') 
                       <button type="button" class="border-0 p-0 bg-transparent"><i class="bi bi-trash badge bg-danger rounded-pill border-0 d-inline-block aksi" id="delete"></i></button>
@@ -150,7 +135,7 @@
             </table>
           </div>       
           <div class="d-flex justify-content-center mt-3">
-            {{ $siswas->links() }}
+            {{ $nilais->links() }}
           </div>
           @else
           @if (Request::input('s'))
