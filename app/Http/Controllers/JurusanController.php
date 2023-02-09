@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Jurusan;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class JurusanController extends Controller
 {
@@ -28,7 +29,10 @@ class JurusanController extends Controller
     public function create()
     {
         $this->authorize('admin');
-        //
+        
+        return view('dashboard.jurusan.create',[
+            'title' => 'Jurusan',
+        ]);
     }
 
     /**
@@ -40,7 +44,15 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         $this->authorize('admin');
-        //
+        
+        $validatedData = $request->validate([
+            'nm_jurusan' => 'required|unique:jurusan',
+            'slug' => 'required|unique:jurusan',
+        ]);
+
+        Jurusan::create($validatedData);
+
+        return redirect('/dashboard/jurusan')->with('success','Data <strong>jurusan</strong> baru telah ditambahkan!');
     }
     
     /**
@@ -60,10 +72,14 @@ class JurusanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Jurusan $jurusan)
     {
         $this->authorize('admin');
-        //
+        
+        return view('dashboard.jurusan.edit',[
+            'title' => 'Jurusan',
+            'jurusan' => $jurusan
+        ]);
     }
     
     /**
@@ -73,10 +89,19 @@ class JurusanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Jurusan $jurusan)
     {
         $this->authorize('admin');
-        //
+        $rules = [];
+
+        if($request->nm_jurusan !== $jurusan->nm_jurusan) $rules['nm_jurusan'] = 'required|unique:jurusan';
+        if($request->slug !== $jurusan->slug) $rules['slug'] = 'required|unique:jurusan';
+
+        $validatedData = $request->validate($rules);
+
+        Jurusan::where('id',$jurusan->id)->update($validatedData);
+
+        return redirect('/dashboard/jurusan')->with('success','Data <strong>jurusan</strong> telah diperbarui!');
     }
     
     /**
@@ -85,9 +110,19 @@ class JurusanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Jurusan $jurusan)
     {
         $this->authorize('admin');
-        //
+        
+        Jurusan::destroy($jurusan->id);
+
+        return redirect('/dashboard/jurusan');
+    }
+
+    public function createSlug(Request $request) {
+        $slug = SlugService::createSlug(Jurusan::class,'slug',$request->nm_jurusan);
+        return response()->json([
+            'slug' => $slug,
+        ]);
     }
 }

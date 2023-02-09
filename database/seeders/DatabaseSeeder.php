@@ -54,63 +54,63 @@ class DatabaseSeeder extends Seeder
 
         Kelas::create([
             'jurusan_id' => 4,
-            'nm_kelas' => 'XD',
+            'nm_kelas' => 'XD RPL',
         ]);
         Kelas::create([
             'jurusan_id' => 4,
-            'nm_kelas' => 'XID',
+            'nm_kelas' => 'XID RPL',
         ]);
         Kelas::create([
             'jurusan_id' => 4,
-            'nm_kelas' => 'XIID',
+            'nm_kelas' => 'XIID RPL',
         ]);
         Kelas::create([
             'jurusan_id' => 3,
-            'nm_kelas' => 'XIID',
+            'nm_kelas' => 'XIID RPL',
         ]);
         Kelas::create([
             'jurusan_id' => 2,
-            'nm_kelas' => 'XIID',
+            'nm_kelas' => 'XIID RPL',
         ]);
         Kelas::create([
             'jurusan_id' => 1,
-            'nm_kelas' => 'XIID',
+            'nm_kelas' => 'XIID RPL',
         ]);
         Kelas::create([
             'jurusan_id' => 3,
-            'nm_kelas' => 'XID',
+            'nm_kelas' => 'XID RPL',
         ]);
         Kelas::create([
             'jurusan_id' => 3,
-            'nm_kelas' => 'XD',
+            'nm_kelas' => 'XD RPL',
         ]);
         Kelas::create([
             'jurusan_id' => 2,
-            'nm_kelas' => 'XID',
+            'nm_kelas' => 'XID RPL',
         ]);
         Kelas::create([
             'jurusan_id' => 2,
-            'nm_kelas' => 'XD',
+            'nm_kelas' => 'XD RPL',
         ]);
         Kelas::create([
             'jurusan_id' => 1,
-            'nm_kelas' => 'XID',
+            'nm_kelas' => 'XID RPL',
         ]);
         Kelas::create([
             'jurusan_id' => 1,
-            'nm_kelas' => 'XD',
+            'nm_kelas' => 'XD RPL',
         ]);
         Kelas::create([
             'jurusan_id' => 3,
-            'nm_kelas' => 'XIIB',
+            'nm_kelas' => 'XIIB RPL',
         ]);
         Kelas::create([
             'jurusan_id' => 3,
-            'nm_kelas' => 'XIB',
+            'nm_kelas' => 'XIB RPL',
         ]);
         Kelas::create([
             'jurusan_id' => 3,
-            'nm_kelas' => 'XB',
+            'nm_kelas' => 'XB RPL',
         ]);
     }
 }

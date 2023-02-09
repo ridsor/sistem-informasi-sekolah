@@ -12,6 +12,9 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <title>Login &middot; RPL</title>
   </head>
@@ -45,7 +48,7 @@
                 @csrf
                 <img src="/img/logo-rpl.png" alt="" width="50" height="50" />
                 <h2 class="mt-2">Halo, Teman!</h2>
-                <p class="text-muted mb-5">Hanya admin yang dapat login ya...<br>Masukan email & password untuk login</p>
+                <p class="text-muted mb-5">Welcome back!<br>Masukan email & password untuk login</p>
                 @if(session()->has('loginError'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     {{ session('loginError') }}
