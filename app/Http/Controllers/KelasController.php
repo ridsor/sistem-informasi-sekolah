@@ -17,7 +17,7 @@ class KelasController extends Controller
     {
         return view('dashboard.kelas.index',[
             'title' => 'Kelas',
-            'kelass' => Kelas::sortable()->filter(request(['j','s']))->paginate(10)->onEachSide(1)->fragment('kelas')->withQueryString(),
+            'kelass' => Kelas::sortable()->filter(request(['j','s']))->orderByDesc('id')->paginate(10)->onEachSide(1)->fragment('kelas')->withQueryString(),
         ]);
     }
 
