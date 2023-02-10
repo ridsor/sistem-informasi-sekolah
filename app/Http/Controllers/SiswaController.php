@@ -19,7 +19,7 @@ class SiswaController extends Controller
     {
         return view('dashboard.siswa.index',[
             'title' => 'Siswa',
-            'siswas' => Siswa::sortable()->filter(request(['s','j','tmpt_lhr','tngl_lhr','j_k','agm','thn_ajrn','nm_a','nm_i','nm_w','almt','np']))->paginate(10)->onEachSide(2)->fragment('siswa')->withQueryString(),
+            'siswas' => Siswa::sortable()->filter(request(['s','j','tmpt_lhr','tngl_lhr','j_k','agm','thn_ajrn','nm_a','nm_i','nm_w','almt','np']))->orderByDesc('id')->paginate(10)->onEachSide(2)->fragment('siswa')->withQueryString(),
             'jurusans' => Jurusan::all(),
         ]);
     }

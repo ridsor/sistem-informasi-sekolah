@@ -17,7 +17,7 @@ class JurusanController extends Controller
     {
         return view('dashboard.jurusan.index',[
             'title' => 'Jurusan',
-            'jurusans' => Jurusan::sortable()->filter(request(['s']))->paginate(10)->OnEachSide(1)->fragment('jurusan')->withQueryString(),
+            'jurusans' => Jurusan::sortable()->filter(request(['s']))->orderByDesc('id')->paginate(10)->OnEachSide(1)->fragment('jurusan')->withQueryString(),
         ]);
     }
 

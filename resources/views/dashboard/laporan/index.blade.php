@@ -127,7 +127,7 @@
                   <td>
                     <a href="/dashboard/laporan/{{ $nilai->id }}" class="badge bg-success rounded-pil"><i class="bi bi-eye aksi"></i></a>
                     <a href="/dashboard/laporan/{{ $nilai->id }}/edit" class="badge bg-warning rounded-pill"><i class="bi bi-pencil-square aksi"></i></a>
-                    <form method="post" class="d-inline-block" action="/dashboard/siswa/{{ $nilai->id }}">
+                    <form method="post" class="d-inline-block" action="/dashboard/laporan/{{ $nilai->id }}">
                       @csrf
                       @method('delete') 
                       <button type="button" class="border-0 p-0 bg-transparent"><i class="bi bi-trash badge bg-danger rounded-pill border-0 d-inline-block aksi" id="delete"></i></button>
