@@ -17,11 +17,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('nilai_id');
             $table->string('nm_mapel');
-            $table->integer('kkm');
-            $table->integer('n_mapel');
-            $table->integer('n_tugas');
-            $table->integer('n_uts');
-            $table->integer('n_uas');
+            $table->integer('p_kkm');
+            $table->integer('p_angka');
+            $table->char('p_predikat',1);
+            $table->string('p_deskripsi');
+            $table->integer('k_kkm');
+            $table->integer('k_angka');
+            $table->char('k_predikat',1);
+            $table->string('k_deskripsi');
         });
     }
 

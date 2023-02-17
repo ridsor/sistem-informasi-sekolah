@@ -97,9 +97,9 @@
                   <th scope="col">@sortablelink('siswa.nm_siswa','Nama')</th>
                   <th scope="col">@sortablelink('siswa.nisn','NISN')</th>
                   <th scope="col">@sortablelink('siswa.nis','NIS')</th>
-                  <th scope="col">@sortablelink('kelas','Kelas')</th>
-                  <th scope="col">@sortablelink('semester','Semester')</th>
-                  <th scope="col">@sortablelink('tahun_ajaran','Tahun Ajaran')</th>
+                  <th scope="col">@sortablelink('kelas.nm_kelas','Kelas')</th>
+                  <th scope="col">Semester</th>
+                  <th scope="col">@sortablelink('tahun_pelajaran','Tahun Pelajaran')</th>
                   <th scope="col">@sortablelink('jurusan.nm_jurusan','Jurusan')</th>
                   <th scope="col">Foto</th>
                   @can('admin')
@@ -116,7 +116,7 @@
                   <td>{{ $nilai->siswa->nis }}</td>
                   <td>{{ $nilai->kelas->nm_kelas }}</td>
                   <td>{{ $nilai->semester }}</td>
-                  <td>{{ $nilai->tahun_ajaran }}</td>
+                  <td>{{ $nilai->tahun_pelajaran }}</td>
                   <td>{{ $nilai->siswa->jurusan->nm_jurusan }}</td>
                   @if(empty($nilai->siswa->foto))
                   <td class="text-center"><img src="/img/profile.png" alt="" class="rounded-circle" width="35" height="35"></td>

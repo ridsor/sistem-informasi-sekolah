@@ -19,12 +19,17 @@ html * {
     vertical-align: bottom !important;
 }
 
+.form-create *,
+.form-floating > label {
+    font-size: 14px !important;
+}
+
 .pagination {
     --bs-pagination-bg: #fff !important;
     --bs-pagination-active-bg: #212529 !important;
     --bs-pagination-active-border-color: #212529 !important;
     --bs-pagination-color: #212529 !important;
-    --bs-pagination-hover-color: #fff !important;
+    --bs-pagination-hover-color: #212529 !important;
     --bs-pagination-hover-bg: rgba(0, 0, 0, 0.05) !important;
     --bs-pagination-hover-border-color: rgba(0, 0, 0, 0.05) !important;
     --bs-pagination-focus-bg: rgba(0, 0, 0, 0.05) !important;
