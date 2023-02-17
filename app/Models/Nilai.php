@@ -13,15 +13,18 @@ class Nilai extends Model
     protected $table = 'nilai';
     protected $fillable = [
         'siswa_id',
-        'kelas',
+        'kelas_id',
         'semester',
-        'sikap',
-        'kompetensi',
-        'keterampilan'
+        'tahun_pelajaran',
+        'skp_spiritual_predikat',
+        'skp_spiritual_deskripsi',
+        'skp_sosial_predikat',
+        'skp_sosial_deskripsi',
     ];
     protected $sortable = [
-        'kelas',
+        'tahun_pelajaran'
     ];
+    protected $with = ['siswa','kelas','nilai_mapels'];
 
     public function siswa() {
         return $this->belongsTo(Siswa::class,'siswa_id');
@@ -29,6 +32,10 @@ class Nilai extends Model
 
     public function kelas() {
         return $this->belongsTo(Kelas::class);
+    }
+
+    public function nilai_mapels() {
+        return $this->hasMany(NilaiMapel::class);
     }
 
     public function scopeFilter($query, array $filters) {

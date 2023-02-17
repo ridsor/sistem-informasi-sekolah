@@ -19,7 +19,7 @@
 <main class="position-relative">
   <div class="container-fluid p-0 px-md-3 w-100">
     <h2 class="fs-5 text-dark d-inline-block mt-3 mb-2 ms-2 ms-md-0">Tambah Data Siswa</h2>
-    <div class="bg-light border rounded-md-3 py-2">
+    <div class="bg-light border rounded-md-3 pt-3 mb-3">
       <form class="needs-validation form-create m-0" method="post" action="/dashboard/siswa" enctype="multipart/form-data">
         @csrf
         <div class="row m-0">
