@@ -13,10 +13,13 @@ class NilaiMapel extends Model
     protected $fillable = [
         'nilai_id',
         'nm_mapel',
-        'kkm',
-        'n_mapel',
-        'n_tugas',
-        'n_uts',
-        'n_uas'
+        'p_kkm',
+        'p_angka',
+        'p_predikat',
+        'p_deskripsi',
+        'k_kkm',
+        'k_angka',
+        'k_predikat',
+        'k_deskripsi',
     ];
 }

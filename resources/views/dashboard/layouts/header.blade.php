@@ -1,5 +1,5 @@
 <header class="py-2 border-bottom bg-secondary-subtle">
-  @if(!Request::is('dashboard') && !Request::is('dashboard/siswa/*') && !Request::is('dashboard/kelas/*') && !Request::is('dashboard/jurusan/*'))
+  @if(!Request::is('dashboard') && !Request::is('dashboard/siswa/*') && !Request::is('dashboard/kelas/*') && !Request::is('dashboard/jurusan/*') && !Request::is('dashboard/laporan/*'))
   <div class="container-search container-fluid align-items-center">
     <button type="button" class="d-md-none btn border-0 p-0">
       <label for="checkbox-search" class="btn btn-danger btn-sm">
@@ -30,7 +30,7 @@
       </button>
     </div>       
     <div class="d-flex align-items-center justify-content-end">
-      @if(!Request::is('dashboard') && !Request::is('dashboard/siswa/*') && !Request::is('dashboard/kelas/*') && !Request::is('dashboard/jurusan/*')) 
+      @if(!Request::is('dashboard') && !Request::is('dashboard/siswa/*') && !Request::is('dashboard/kelas/*') && !Request::is('dashboard/jurusan/*') && !Request::is('dashboard/laporan/*')) 
       <form class="w-100 me-3 d-none d-md-block" role="search" id="searchForm">
         <div class="input-group">
           <input type="search" class="form-control" placeholder="Search...@if(Request::is('dashboard/siswa') || Request::is('dashboard/laporan')) Nama\NISN\NIS @endif" aria-label="Search" name="s">

@@ -1,0 +1,32 @@
+.select2-container .select2-selection--single {
+    width: 100% !important;
+    padding: 0.6rem 0.2rem;
+}
+
+.select2-container--bootstrap4 .select2-selection--single[role="combobox"] {
+    height: 58px !important;
+}
+
+.select2-container--bootstrap4
+    .select2-selection--single
+    .select2-selection__placeholder {
+    color: #212529;
+}
+
+.table * {
+    font-size: 13px !important;
+}
+
+.form-control.is-invalid[name="p_kkm[]"],
+.form-control.is-invalid[name="p_angka[]"],
+.form-control.is-invalid[name="k_kkm[]"],
+.form-control.is-invalid[name="k_angka[]"] {
+    padding-right: 0 !important;
+    background-image: none !important;
+}
+
+.form-select.is-invalid#p_predikat,
+.form-select.is-invalid#k_predikat {
+    --bs-form-select-bg-icon: none !important;
+    padding-right: 0 !important;
+}

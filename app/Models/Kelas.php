@@ -13,10 +13,7 @@ class Kelas extends Model
     protected $table = 'kelas';
     protected $fillable = ['nm_kelas','jurusan_id'];
     protected $sortable = ['nm_kelas'];
-
-    public function siswa() {
-        return $this->hasMany(Siswa::class);
-    }
+    protected $with = ['jurusan'];
 
     public function jurusan() {
         return $this->belongsTo(Jurusan::class);

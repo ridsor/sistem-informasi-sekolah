@@ -29,4 +29,5 @@ Route::resource('/dashboard/siswa', SiswaController::class)->except('show')->mid
 Route::resource('/dashboard/kelas', KelasController::class)->except('show')->middleware('auth');
 Route::resource('/dashboard/jurusan', JurusanController::class)->except('show')->middleware('auth');
 Route::resource('/dashboard/laporan', LaporanController::class)->middleware('auth');
+Route::get('/dashboard/laporan/cetak/{nilai}', [LaporanController::class, 'cetak']);
 Route::get('/dashboard/jurusan/create-slug', [JurusanController::class, 'createSlug'])->middleware('auth');
