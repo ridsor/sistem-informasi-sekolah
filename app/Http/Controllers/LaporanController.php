@@ -213,7 +213,7 @@ class LaporanController extends Controller
             'nilai' => $nilai,
             'nilai_mapels' => NilaiMapel::where('nilai_id',$nilai->id)->get(),
         ]);
-        $pdf = Pdf::loadView('dashboard.laporan.raport')->setPaper('a4', 'landscape');
+        $pdf = Pdf::loadView('dashboard.laporan.cetak')->setPaper('a4', 'landscape');
         return $pdf->stream('laporan-'.strtolower($nilai->siswa->slug).''.strtolower($nilai->kelas->nm_kelas).''.strtolower($nilai->semester).'.pdf');
     }
 }
