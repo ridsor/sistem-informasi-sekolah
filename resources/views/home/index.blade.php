@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row featurette align-items-center">
             <div class="col-md-5 order-md-2 mb-5 mb-md-0 d-flex justify-content-center">
-                <img src="/img/banner.png" width="100%" class="filter-shadow"></img>
+                <img src="/img/banner.png" width="100%" class="filter-shadow banner-home"></img>
             </div>
             <div class="col-md-7 order-md-1">
                 <h2 class="featurette-heading">Welcome To <span class="text-muted">Rekayasa Perangkat Lunak.</span></h2>
