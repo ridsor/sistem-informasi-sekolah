@@ -145,11 +145,13 @@
           @else
           @if (Request::input('s'))
           <h2 class="fs-3 mx-4 py-3 border-bottom"><strong class="text-danger">{{ Request::input('s') }}</strong> - hasil pencarian</h2>
-          @else
           <h2 class="fs-3 mx-4 py-3 border-bottom">hasil pencarian</h2>
-          @endif
           <p class="mx-4">Jika Anda tidak puas dengan hasilnya silahkan melakukan pencarian lain</p>
           <div class="display-6 fs-3 mb-3 mx-4 py-5">Tidak ada hasil untuk pencarian anda</div>
+          @else
+          <h2 class="fs-3 mx-4 py-3 border-bottom">Tidak ada hasil</h2>
+          <p class="mx-4">Jika Anda tidak puas dengan hasilnya silahkan melakukan pencarian lain</p>
+          @endif
           @endif
         </div>
       </div>
