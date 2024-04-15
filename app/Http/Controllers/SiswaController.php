@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Siswa;
 use App\Models\Jurusan;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
@@ -77,7 +78,8 @@ class SiswaController extends Controller
         $validatedData['wali'] = $request->wali;
         $validatedData['jurusan_id'] = $request->jurusan;
         unset($validatedData['jurusan']);
-        $validatedData['foto'] = $request->file('foto')->store('siswa-images');
+        $validatedData['foto'] = Str::random(10) . time() . '.' . $request->foto->extension(); 
+        $request->foto->move(public_path('siswa-images'), $validatedData['foto']);
 
         Siswa::create($validatedData);
 
@@ -150,7 +152,8 @@ class SiswaController extends Controller
             if($siswa->foto) {
                 Storage::delete($siswa->foto);
             }
-            $validatedData['foto'] = $request->file('foto')->store('siswa-images');
+            $validatedData['foto'] = Str::random(10) . time() . '.' . $request->foto->extension(); 
+            $request->foto->move(public_path('siswa-images'), $validatedData['foto']);
         }
 
         Siswa::where('id',$siswa->id)->update($validatedData);

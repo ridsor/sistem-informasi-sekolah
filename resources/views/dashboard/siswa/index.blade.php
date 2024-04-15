@@ -132,7 +132,7 @@
                   @if(empty($siswa->foto))
                   <td><img src="/img/profile.png" alt="" class="rounded-circle" width="35" height="35"></td>
                   @else
-                  <td><img src="/{{ $siswa->foto }}" alt="" class="rounded-circle" width="35" height="35"></td>
+                  <td><img src="/siswa-images/{{ $siswa->foto }}" alt="" class="rounded-circle" width="35" height="35"></td>
                   @endif
                   @can('admin')
                   <td>

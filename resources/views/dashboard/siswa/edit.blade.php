@@ -186,7 +186,7 @@
               <small class="text-muted d-block mt-1" style="font-size: 13px !important">Maksimal 1mb</small>
               <small class="text-muted d-block" style="font-size: 13px !important">Format: 3x4</small>
               @if ($siswa->foto)
-              <img src="{{ asset('storage/'.$siswa->foto) }}" alt="" width="70" height="100" class="mt-2" id="imgPreview">
+              <img src="{{ "/siswa-images/".$siswa->foto}} " alt="" width="70" height="100" class="mt-2" id="imgPreview">
               @else
               <img src="/img/profile.png" alt="" width="70" height="100" class="mt-2" id="imgPreview">
               @endif
