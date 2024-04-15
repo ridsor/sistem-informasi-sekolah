@@ -22,7 +22,7 @@
   <nav class="container-fluid gap-3 align-items-center d-grid" style="grid-template-columns: 1fr 2fr;">
     <div class="section-left">
       <img src="/img/profile.png" alt="" width="35" height="35" class="d-inline-block rounded-circle"/>
-      <span class="account-name fw-semibold fs-6 d-inline-block ms-2">{{ auth()->user()->name }}</span>
+      <span class="account-name fw-semibold fs-6 d-inline-block ms-2 admin-name">{{ auth()->user()->name }}</span>
       <button type="button" class="d-md-block d-none btn p-0 border-0 menu">
         <label for="checkbox-collapse" class="btn btn-outline-secondary btn-sm">
           <i class="bi bi-list"></i>
