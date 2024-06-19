@@ -121,7 +121,7 @@
                   @if(empty($nilai->siswa->foto))
                   <td class="text-center"><img src="/img/profile.png" alt="" class="rounded-circle" width="35" height="35"></td>
                   @else
-                  <td class="text-center"><img src="/{{ $nilai->siswa->foto }}" alt="" class="rounded-circle" width="35" height="35"></td>
+                  <td class="text-center"><img src="/siswa-images/{{ $nilai->siswa->foto }}" alt="" class="rounded-circle" width="35" height="35"></td>
                   @endif
                   @can('admin')
                   <td>
